@@ -1,8 +1,23 @@
-const express = require('express')
-const app = express()
+var request = require("request");
+var base_url = "http://localhost:3000/";
+var server = require("../app.js");
 
-app.get('/', (req, res) => res.send('Hello World!'))
+describe("Hello World Server", function() {
+  describe("GET /", function() {
+    it("returns status code 200", function(done) {
+      request.get(base_url, function(error, response, body) {
+        expect(response.statusCode).toBe(200);
+        done();
+      });
+    });
 
-var server = app.listen(3000, () => {
-    console.log("Listening on port " + server.address().port + "...");
+    it("returns Hello World", function(done) {
+      request.get(base_url, function(error, response, body) {
+        expect(body).toBe("Hello World!");
+        done();
+
+        server.close();
+      });
+    });
+  });
 });
