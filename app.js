@@ -1,10 +1,11 @@
-const express = require('express')
-const app = express()
-
-app.get('/', (req, res) => res.send('Hello World!'))
-
-var server = app.listen(3000, () => {
-    console.log("Listening on port " + server.address().port + "...");
-});
-
-module.exports = server;
+{
+  "name": "node-jenkins-app-example",
+  "version": "0.0.1",
+  "description": "Simple Hello World demo app.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harvey Delaney",
+  "license": "ISC"
+}
